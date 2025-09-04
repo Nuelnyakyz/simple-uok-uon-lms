@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enrollment Options - Introduction to Robotics</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <button class="menu-btn">☰</button>
+            <div class="logo-section">
+                <img src="/uon-logo.png" alt="University of Nairobi" class="logo">
+                <span class="university-name">UNIVERSITY OF NAIROBI</span>
+            </div>
+            <div class="header-actions">
+                <button class="notification-btn">🔔</button>
+                <button class="chat-btn">💬</button>
+                <span class="language-selector">EN</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <nav class="sidebar-nav">
+            <a href="index.html" class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                </svg>
+            </a>
+            <a href="#" class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+            </a>
+            <a href="#" class="nav-item active">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                </svg>
+            </a>
+            <a href="#" class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content enrollment-page">
+        <div class="container">
+
+            <h1 class="page-title" style="color:#2c7ca1">Introduction to Robotics</h1>
+
+            <!-- Course Info Bar -->
+            <div class="course-info-bar">
+
+                <div class="summary-content">
+                    <span><b>Course Summary</b></span>
+                    <br>
+                    <p>This comprehensive course introduces students to the fascinating world of robotics, covering fundamental concepts, programming, and hands-on applications.</p>
+                    <br>
+                    <p style="color:#2c7ca1"><i>You are now enrolled in this course.</i></p>
+                </div>
+            </div><br>
+
+            <!-- Course Content (Hidden initially) -->
+            <div class="course-content" id="courseContent">
+                <h2 class="content-title">Course Modules</h2>
+                
+                <!-- Module 1 -->
+                <div class="topic-item">
+                    <div class="topic-header" onclick="toggleTopic('topic1')">
+                        <div class="topic-info">
+                            <h3>Module 1: Introduction to Robotics</h3>
+                            <span class="topic-duration">Week 1-3 • 5 lessons</span>
+                        </div>
+                        <svg class="expand-icon" id="topic1-icon" viewBox="0 0 24 24">
+                            <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                        </svg>
+                    </div>
+                    <div class="topic-content" id="topic1-content">
+                        <div class="lesson-item">
+                            <div class="lesson-type video">📹</div>
+                            <div class="lesson-details">
+                                <h4>What is Robotics?</h4>
+                                <p>Overview of robotics field and applications</p>
+                                <span class="lesson-duration">20 min</span>
+                            </div>
+                        </div>
+                        <div class="lesson-item">
+                            <div class="lesson-type notes">📄</div>
+                            <div class="lesson-details">
+                                <h4>Robot Types and Classifications</h4>
+                                <p>Industrial, service, and autonomous robots</p>
+                                <span class="lesson-duration">Reading • 15 min</span>
+                            </div>
+                        </div>
+                        <div class="lesson-item">
+                            <div class="lesson-type video">📹</div>
+                            <div class="lesson-details">
+                                <h4>Core Components</h4>
+                                <p>Sensors, actuators, and control systems</p>
+                                <span class="lesson-duration">25 min</span>
+                            </div>
+                        </div>
+                        <div class="lesson-item">
+                            <div class="lesson-type quiz">❓</div>
+                            <div class="lesson-details">
+                                <h4>Module Assessment</h4>
+                                <p>Test your understanding</p>
+                                <span class="lesson-duration">8 questions</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 2 -->
+                <div class="topic-item">
+                    <div class="topic-header" onclick="toggleTopic('topic2')">
+                        <div class="topic-info">
+                            <h3>Module 2: Programming and Control</h3>
+                            <span class="topic-duration">Week 4-8 • 6 lessons</span>
+                        </div>
+                        <svg class="expand-icon" id="topic2-icon" viewBox="0 0 24 24">
+                            <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                        </svg>
+                    </div>
+                    <div class="topic-content" id="topic2-content">
+                        <div class="lesson-item">
+                            <div class="lesson-type video">📹</div>
+                            <div class="lesson-details">
+                                <h4>Programming Fundamentals</h4>
+                                <p>Python basics for robotics</p>
+                                <span class="lesson-duration">35 min</span>
+                            </div>
+                        </div>
+                        <div class="lesson-item">
+                            <div class="lesson-type video">📹</div>
+                            <div class="lesson-details">
+                                <h4>Control Systems</h4>
+                                <p>PID controllers and feedback loops</p>
+                                <span class="lesson-duration">30 min</span>
+                            </div>
+                        </div>
+                        <div class="lesson-item">
+                            <div class="lesson-type assignment">📝</div>
+                            <div class="lesson-details">
+                                <h4>Programming Project</h4>
+                                <p>Build a simple control system</p>
+                                <span class="lesson-duration">Due: Week 8</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 3 -->
+                <div class="topic-item">
+                    <div class="topic-header" onclick="toggleTopic('topic3')">
+                        <div class="topic-info">
+                            <h3>Module 3: Sensors and Perception</h3>
+                            <span class="topic-duration">Week 9-12 • 4 lessons</span>
+                        </div>
+                        <svg class="expand-icon" id="topic3-icon" viewBox="0 0 24 24">
+                            <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                        </svg>
+                    </div>
+                    <div class="topic-content" id="topic3-content">
+                        <div class="lesson-item">
+                            <div class="lesson-type video">📹</div>
+                            <div class="lesson-details">
+                                <h4>Computer Vision Basics</h4>
+                                <p>Image processing for robotics</p>
+                                <span class="lesson-duration">40 min</span>
+                            </div>
+                        </div>
+                        <div class="lesson-item">
+                            <div class="lesson-type video">📹</div>
+                            <div class="lesson-details">
+                                <h4>Distance and Motion Sensors</h4>
+                                <p>Ultrasonic, LiDAR, and IMU sensors</p>
+                                <span class="lesson-duration">30 min</span>
+                            </div>
+                        </div>
+                        <div class="lesson-item">
+                            <div class="lesson-type lab">🔬</div>
+                            <div class="lesson-details">
+                                <h4>Sensor Integration Lab</h4>
+                                <p>Hands-on sensor programming</p>
+                                <span class="lesson-duration">2 hours</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 4 -->
+                <div class="topic-item">
+                    <div class="topic-header" onclick="toggleTopic('topic4')">
+                        <div class="topic-info">
+                            <h3>Module 4: Navigation and Autonomy</h3>
+                            <span class="topic-duration">Week 13-16 • 5 lessons</span>
+                        </div>
+                        <svg class="expand-icon" id="topic4-icon" viewBox="0 0 24 24">
+                            <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                        </svg>
+                    </div>
+                    <div class="topic-content" id="topic4-content">
+                        <div class="lesson-item">
+                            <div class="lesson-type video">📹</div>
+                            <div class="lesson-details">
+                                <h4>Path Planning</h4>
+                                <p>Algorithms for robot navigation</p>
+                                <span class="lesson-duration">35 min</span>
+                            </div>
+                        </div>
+                        <div class="lesson-item">
+                            <div class="lesson-type video">📹</div>
+                            <div class="lesson-details">
+                                <h4>Localization and Mapping</h4>
+                                <p>SLAM techniques and applications</p>
+                                <span class="lesson-duration">45 min</span>
+                            </div>
+                        </div>
+                        <div class="lesson-item">
+                            <div class="lesson-type assignment">📝</div>
+                            <div class="lesson-details">
+                                <h4>Final Project</h4>
+                                <p>Design an autonomous robot system</p>
+                                <span class="lesson-duration">Due: Week 18</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 University of Nairobi. All rights reserved.</p>
+                <button class="help-btn">?</button>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
