@@ -7,105 +7,297 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <div class="sidebar-content">
+            <button class="close-btn" onclick="toggleSidebar()"> X </button>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link active">
+                    <svg class="nav-icon" viewBox="0 0 24 24">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                    </svg>
+                    <span>Home</span>
+                </a>
+                <a href="#" class="nav-link">
+                    <svg class="nav-icon" viewBox="0 0 24 24">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                    <span>Featured</span>
+                </a>
+                <a href="#" class="nav-link">
+                    <svg class="nav-icon" viewBox="0 0 24 24">
+                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                    </svg>
+                    <span>Courses</span>
+                </a>
+                <a href="#" class="nav-link">
+                    <svg class="nav-icon" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                    <span>Progress</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
     <!-- Header -->
     <header class="header">
         <div class="header-content">
             <button class="menu-btn">☰</button>
             <div class="logo-section">
-                <img src="/uon-logo.png" alt="University of Nairobi" class="logo">
-                <span class="university-name">UNIVERSITY OF NAIROBI</span>
+                <img src="/uok-logo.png" alt="University of Nairobi" class="logo">
+                <span class="university-name">OPEN UNIVERSITY OF KENYA</span>
             </div>
-            <button class="login-btn">Log in</button>
+            <div class="header-actions">
+                <button class="btn-primary" onclick="enrollInCourse('robotics')">Apply Now</button>
+                <div class="search-container">
+                    <input type="text" placeholder="Search programs..." class="search-input">
+                    <button class="search-btn">
+                        <svg viewBox="0 0 24 24" width="18" height="18">
+                            <path fill="currentColor" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
         </div>
     </header>
 
-    <!-- Sidebar -->
-    <aside class="sidebar">
-        <nav class="sidebar-nav">
-            <a href="index.html" class="nav-item">
-                <svg class="nav-icon" viewBox="0 0 24 24">
-                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-                </svg>
-            </a>
-            <a href="#" class="nav-item">
-                <svg class="nav-icon" viewBox="0 0 24 24">
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                </svg>
-            </a>
-            <a href="#" class="nav-item">
-                <svg class="nav-icon" viewBox="0 0 24 24">
-                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
-                </svg>
-            </a>
-            <a href="#" class="nav-item">
-                <svg class="nav-icon" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                </svg>
-            </a>
-        </nav>
-    </aside>
-
     <!-- Main Content -->
-    <main class="main-content course-summary">
-        <!-- Hero Section -->
-        <section class="course-hero">
-            <div class="hero-content">
-                <div class="course-image-circle">
-                    <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Introduction to Robotics">
+    <main class="main-content">
+        <!-- Red background bar -->
+        
+        
+        <!-- Hero Section with Stanford-style layout -->
+        <section class="hero-section">
+
+            <div class="red-background-bar"></div>
+
+            <div class="hero-container">
+                <div class="hero-content-wrapper">
+                    <!-- Left content area -->
+                    <div class="hero-text-content">
+                        <h2 class="hero-title">Meta Certified Media Planning Professional</h2>
+                        <p class="hero-description">
+                            Master the art of strategic media planning and digital advertising with Meta's comprehensive certification program. 
+                            Learn to create data-driven media strategies, optimize campaign performance across Facebook, Instagram, and Meta's 
+                            advertising ecosystem. This industry-recognized certification equips you with advanced skills in audience targeting, 
+                            budget allocation, and campaign measurement to drive measurable business results in today's digital landscape.
+                        </p>
+                        <div class="hero-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Apply By</span>
+                                <span class="detail-value">September 22, 2025</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Start Date</span>
+                                <span class="detail-value">October 25, 2025</span>
+                            </div>
+                        </div>
+                        <div class="hero-actions">
+                            <button class="btn-primary">Apply Now</button>
+                            <button class="btn-secondary">Download Brochure</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Right image area - overlapping the red bar -->
+                    <div class="hero-image-container">
+                        <div class="hero-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Robotics Student" class="hero-image">
+                        </div>
+                    </div>
                 </div>
-                <h1 class="course-hero-title">Introduction to Robotics</h1>
-                <button class="enter-course-btn" onclick="enrollInCourse('robotics')"><span>ENROLL COURSE</span></button>
             </div>
-            
         </section>
 
-        <!-- Course Summary Section -->
-        <section class="course-summary-section">
-            <div class="container">
-                <h2 class="section-title">Course Summary</h2>
-                
-                <!-- Course Info Row -->
-                <div class="course-info-row">
-                    <div class="info-card">
-                        <h4>Lecturer</h4>
-                        <p>Prof. James Kimani</p>
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="stats-container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <svg viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="currentColor" d="M20,18C20.5,18 21,17.5 21,17V7C21,6.5 20.5,6 20,6H4C3.5,6 3,6.5 3,7V17C3,17.5 3.5,18 4,18H12L10.5,20H9V21H15V20H13.5L12,18H20Z"/>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-label">Format</span>
+                            <span class="stat-value">Online</span>
+                        </div>
                     </div>
-                    <div class="info-card">
-                        <h4>Duration</h4>
-                        <p>12-16 weeks</p>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <svg viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="currentColor" d="M9,1V3H15V1H17V3H21A2,2 0 0,1 23,5V19A2,2 0 0,1 21,21H3A2,2 0 0,1 1,19V5A2,2 0 0,1 3,3H7V1H9M21,19V8H3V19H21M7,10H17V12H7V10Z"/>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-label">Commitment</span>
+                            <span class="stat-value">14 weeks | 4-6 hours/week</span>
+                        </div>
                     </div>
-                    <div class="info-card">
-                        <h4>Study Time</h4>
-                        <p>4-6 hours per week</p>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <svg viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="currentColor" d="M19,2L14,6.5V17.5L19,13V2M6.5,5C4.55,5.07 2.95,6.76 3,8.71C3.05,10.66 4.76,12.26 6.71,12.21C8.66,12.16 10.26,10.45 10.21,8.5C10.16,6.55 8.45,4.95 6.5,5M17.5,17.5H22V19H17.5V17.5Z"/>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-label">Course Load</span>
+                            <span class="stat-value">8 Modules</span>
+                        </div>
                     </div>
-                    <div class="info-card">
-                        <h4>Course Fee</h4>
-                        <p style="color: #4caf50">Free</p>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <svg viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="currentColor" d="M7,15H9C9,16.08 10.37,17 12,17C13.63,17 15,16.08 15,15C15,13.9 13.96,13.5 11.76,12.97C9.64,12.44 7,11.78 7,9C7,7.21 8.47,5.69 10.5,5.18V3H13.5V5.18C15.53,5.69 17,7.21 17,9H15C15,7.92 13.63,7 12,7C10.37,7 9,7.92 9,9C9,10.1 10.04,10.5 12.24,11.03C14.36,11.56 17,12.22 17,15C17,16.79 15.53,18.31 13.5,18.82V21H10.5V18.82C8.47,18.31 7,16.79 7,15Z"/>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-label">Price</span>
+                            <span class="stat-value">KSH 190,000 | (4 quarterly installments of KSH 47,500)</span>
+                        </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <div class="summary-content">
-                    <div class="summary-grid">
-                        <div class="summary-item">
-                            <h4>Course Overview</h4>
-                            <p>This comprehensive course introduces students to the fascinating world of robotics, covering fundamental concepts, programming, and hands-on applications.</p>
+        <!-- Course Content Section -->
+        <section class="course-content">
+            <div class="container">
+                <!-- Tab Navigation -->
+                <nav class="tab-nav">
+                    <button class="tab-btn active" data-tab="overview">Course Overview</button>
+                    <button class="tab-btn" data-tab="objectives">Why this course</button>
+                    <button class="tab-btn" data-tab="prerequisites">Who this course is for</button>
+                    <button class="tab-btn" data-tab="assessment">Assessment</button>
+                    <button class="tab-btn" data-tab="instructor">Instructor</button>
+                </nav>
+
+                <!-- Tab Content -->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="overview">
+                        <h3 style="color: #037b90">Course Overview</h3>
+                        <p>Learn more about Robotics with our comprehensive online course, combining fundamental principles and advanced applications. Navigate through mechanical design, sensor integration, programming paradigms and control systems. Master the art of robot assembly, testing, and deployment through hands-on projects. Organize your learning effectively, building a strong foundation in robotics engineering.</p>
+                        <p>Progress into advanced territory with robot kinematics, dynamics, path planning, and machine learning integration. Our efficient delivery empowers you to harness robotics capabilities for automation, manufacturing, healthcare, and exploration applications.</p>
+                        <div class="highlight-box">
+                            <strong>This course is part of Free Certification Portfolio, you can learn and upskill free of cost and claim Free-Certification at the end of the Course.</strong>
                         </div>
-                        <div class="summary-item">
-                            <h4>Learning Objectives</h4>
+                    </div>
+
+                    <div class="tab-pane" id="objectives">
+                        <h3 style="color: #037b90">Why Choose This Robotics Course</h3>
+                        <div class="objectives-grid">
+                            <div class="objective-card">
+                                <h4>🤖 Hands-On Learning</h4>
+                                <p>Work with real robots and simulation software to gain practical experience in robotics programming and control.</p>
+                            </div>
+                            <div class="objective-card">
+                                <h4>🔧 Industry-Relevant Skills</h4>
+                                <p>Learn programming languages and tools used in the robotics industry, including Python, ROS, and embedded systems.</p>
+                            </div>
+                            <div class="objective-card">
+                                <h4>🎯 Project-Based Learning</h4>
+                                <p>Complete real-world projects that demonstrate your ability to design, build, and program robotic systems.</p>
+                            </div>
+                            <div class="objective-card">
+                                <h4>🌟 Expert Guidance</h4>
+                                <p>Learn from experienced robotics engineers and researchers with years of industry and academic experience.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="prerequisites">
+                        <h3 style="color: #037b90">Who This Course Is For</h3>
+                        <div class="audience-list">
+                            <div class="audience-item">
+                                <h4>Engineering Students</h4>
+                                <p>Students pursuing mechanical, electrical, or computer engineering who want to specialize in robotics.</p>
+                            </div>
+                            <div class="audience-item">
+                                <h4>Software Developers</h4>
+                                <p>Programmers looking to transition into robotics and embedded systems development.</p>
+                            </div>
+                            <div class="audience-item">
+                                <h4>Technology Enthusiasts</h4>
+                                <p>Individuals passionate about automation, AI, and cutting-edge technology applications.</p>
+                            </div>
+                            <div class="audience-item">
+                                <h4>Career Changers</h4>
+                                <p>Professionals looking to pivot into the rapidly growing robotics and automation industry.</p>
+                            </div>
+                        </div>
+                        <div class="prerequisites-box">
+                            <h4>Prerequisites</h4>
                             <ul>
-                                <li>Understand basic robotics principles and mechanics</li>
-                                <li>Learn robot programming using Python and ROS</li>
-                                <li>Gain hands-on experience with robot assembly</li>
-                                <li>Develop problem-solving skills in robotics applications</li>
+                                <li>Basic understanding of mathematics and physics</li>
+                                <li>Fundamental programming concepts (any language)</li>
+                                <li>Problem-solving mindset and curiosity about technology</li>
+                                <li>No prior robotics experience required</li>
                             </ul>
                         </div>
-                        <div class="summary-item">
-                            <h4>Prerequisites</h4>
-                            <p>Basic understanding of mathematics and programming concepts. No prior robotics experience required.</p>
+                    </div>
+
+                    <div class="tab-pane" id="assessment">
+                        <h3 style="color: #037b90">Assessment Structure</h3>
+                        <div class="assessment-breakdown">
+                            <div class="assessment-item">
+                                <div class="assessment-percentage">60%</div>
+                                <div class="assessment-details">
+                                    <h4>Practical Assignments</h4>
+                                    <p>Hands-on projects involving robot programming, sensor integration, and system design. Weekly assignments build upon each other to create a complete robotic system.</p>
+                                </div>
+                            </div>
+                            <div class="assessment-item">
+                                <div class="assessment-percentage">20%</div>
+                                <div class="assessment-details">
+                                    <h4>Mid-term Examination</h4>
+                                    <p>Comprehensive test covering theoretical concepts, mathematical foundations, and problem-solving in robotics engineering.</p>
+                                </div>
+                            </div>
+                            <div class="assessment-item">
+                                <div class="assessment-percentage">20%</div>
+                                <div class="assessment-details">
+                                    <h4>Final Project</h4>
+                                    <p>Capstone project where students design, build, and demonstrate a working robotic system that solves a real-world problem.</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="summary-item">
-                            <h4>Assessment</h4>
-                            <p>Continuous assessment through practical assignments (60%), mid-term exam (20%), and final project (20%).</p>
+                        <div class="grading-scale">
+                            <h4>Grading Scale</h4>
+                            <div class="grades-grid">
+                                <div class="grade-item">A: 85-100%</div>
+                                <div class="grade-item">B: 70-84%</div>
+                                <div class="grade-item">C: 55-69%</div>
+                                <div class="grade-item">D: 40-54%</div>
+                                <div class="grade-item">F: Below 40%</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="instructor">
+                        <h3 style="color: #037b90">Meet Your Instructor</h3>
+                        <div class="instructor-profile">
+                            <div class="instructor-image">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Prof. James Kimani">
+                            </div>
+                            <div class="instructor-info">
+                                <h4>Prof. James Kimani</h4>
+                                <p class="instructor-title">Professor of Robotics Engineering</p>
+                                <p class="instructor-bio">
+                                    Prof. Kimani is a leading expert in robotics with over 15 years of experience in both academia and industry. He holds a Ph.D. in Robotics from MIT and has published over 50 research papers in top-tier journals. His research focuses on autonomous systems, machine learning in robotics, and human-robot interaction.
+                                </p>
+                                <div class="instructor-credentials">
+                                    <div class="credential">
+                                        <strong>Education:</strong> Ph.D. Robotics, MIT; M.S. Mechanical Engineering, Stanford
+                                    </div>
+                                    <div class="credential">
+                                        <strong>Experience:</strong> 15+ years in robotics research and development
+                                    </div>
+                                    <div class="credential">
+                                        <strong>Publications:</strong> 50+ peer-reviewed papers in robotics journals
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
