@@ -4,59 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Introduction to Robotics - University of Nairobi</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Sidebar -->
-    <nav class="sidebar">
-        <div class="sidebar-content">
-            <button class="close-btn" onclick="toggleSidebar()"> X </button>
-            <div class="nav-links">
-                <a href="index.html" class="nav-link active">
-                    <svg class="nav-icon" viewBox="0 0 24 24">
-                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-                    </svg>
-                    <span>Home</span>
-                </a>
-                <a href="#" class="nav-link">
-                    <svg class="nav-icon" viewBox="0 0 24 24">
-                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                    </svg>
-                    <span>Featured</span>
-                </a>
-                <a href="#" class="nav-link">
-                    <svg class="nav-icon" viewBox="0 0 24 24">
-                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
-                    </svg>
-                    <span>Courses</span>
-                </a>
-                <a href="#" class="nav-link">
-                    <svg class="nav-icon" viewBox="0 0 24 24">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                    </svg>
-                    <span>Progress</span>
-                </a>
-            </div>
-        </div>
-    </nav>
-
     <!-- Header -->
-    <header class="header">
-        <div class="header-content">
-            <button class="menu-btn">☰</button>
-            <div class="logo-section">
-                <img src="/uok-logo.png" alt="University of Nairobi" class="logo">
-                <span class="university-name">OPEN UNIVERSITY OF KENYA</span>
-            </div>
-            <div class="header-actions">
-                <button class="btn-primary" onclick="enrollInCourse('robotics')">Apply Now</button>
-                <div class="search-container">
-                    <input type="text" placeholder="Search programs..." class="search-input">
-                    <button class="search-btn">
-                        <svg viewBox="0 0 24 24" width="18" height="18">
-                            <path fill="currentColor" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
-                        </svg>
-                    </button>
+    <header class="header-custom">
+        <div class="container-fluid h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-auto">
+                    <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+                </div>
+                <div class="col d-flex align-items-center">
+                    <img src="/uok-logo.png" alt="University of Nairobi" class="logo me-3">
+                    <span class="university-name">OPEN UNIVERSITY OF KENYA</span>
+                </div>
+                <div class="col-auto d-flex align-items-center gap-3">
+                    <button class="btn btn-primary-custom" onclick="enrollInCourse('robotics')">Apply Now</button>
+                    <div class="search-container d-flex align-items-center px-3 py-2">
+                        <input type="text" placeholder="Search programs..." class="search-input flex-grow-1">
+                        <button class="search-btn ms-2">
+                            <svg viewBox="0 0 24 24" width="18" height="18">
+                                <path fill="currentColor" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -65,42 +40,56 @@
     <!-- Main Content -->
     <main class="main-content">
         <!-- Red background bar -->
+        <div class="red-background-bar"></div>
         
-        
-        <!-- Hero Section with Stanford-style layout -->
+        <!-- Hero Section - Updated details -->
         <section class="hero-section">
-
-            <div class="red-background-bar"></div>
-
-            <div class="hero-container">
-                <div class="hero-content-wrapper">
+            <div class="container">
+                <div class="row align-items-start pt-5">
                     <!-- Left content area -->
-                    <div class="hero-text-content">
-                        <h2 class="hero-title">Meta Certified Media Planning Professional</h2>
-                        <p class="hero-description">
-                            Master the art of strategic media planning and digital advertising with Meta's comprehensive certification program. 
-                            Learn to create data-driven media strategies, optimize campaign performance across Facebook, Instagram, and Meta's 
-                            advertising ecosystem. This industry-recognized certification equips you with advanced skills in audience targeting, 
-                            budget allocation, and campaign measurement to drive measurable business results in today's digital landscape.
-                        </p>
-                        <div class="hero-details">
-                            <div class="detail-item">
-                                <span class="detail-label">Apply By</span>
-                                <span class="detail-value">September 22, 2025</span>
+                    <div class="col-lg-6">
+                        <div class="p-4">
+                            <h2 class="hero-title">Meta Certified Media Planning Professional</h2>
+                            <p class="hero-description">
+                                Master the art of strategic media planning and digital advertising with Meta's comprehensive certification program. 
+                                Learn to create data-driven media strategies, optimize campaign performance across Facebook, Instagram, and Meta's 
+                                advertising ecosystem. This industry-recognized certification equips you with advanced skills in audience targeting, 
+                                budget allocation, and campaign measurement to drive measurable business results in today's digital landscape.
+                            </p>
+                            <div class="hero-details">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="detail-item">
+                                            <div class="detail-label">Reviews</div>
+                                            <div class="detail-value">
+                                                <span class="rating-stars">
+                                                    <i class="bi bi-star-fill text-warning"></i>
+                                                    <i class="bi bi-star-fill text-warning"></i>
+                                                    <i class="bi bi-star-fill text-warning"></i>
+                                                    <i class="bi bi-star-fill text-warning"></i>
+                                                    <i class="bi bi-star-half text-warning"></i>
+                                                </span>
+                                                4.8/5 (1,247 reviews)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="detail-item">
+                                            <div class="detail-label">No. of Enrollments</div>
+                                            <div class="detail-value">8,543 students</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="detail-item">
-                                <span class="detail-label">Start Date</span>
-                                <span class="detail-value">October 25, 2025</span>
+                            <div class="hero-actions d-flex gap-5 flex-wrap">
+                                <button class="btn btn-primary-custom">Apply Now</button>
+                                <button class="btn btn-secondary-custom">Download Brochure</button>
                             </div>
-                        </div>
-                        <div class="hero-actions">
-                            <button class="btn-primary">Apply Now</button>
-                            <button class="btn-secondary">Download Brochure</button>
                         </div>
                     </div>
                     
-                    <!-- Right image area - overlapping the red bar -->
-                    <div class="hero-image-container">
+                    <!-- Right image area -->
+                    <div class="col-lg-6">
                         <div class="hero-image-wrapper">
                             <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Robotics Student" class="hero-image">
                         </div>
@@ -109,192 +98,428 @@
             </div>
         </section>
 
-        <!-- Stats Section -->
+        <!-- Updated Stats Section with Bootstrap Icons -->
         <section class="stats-section">
-            <div class="stats-container">
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <div class="stat-icon">
-                            <svg viewBox="0 0 24 24" width="24" height="24">
-                                <path fill="currentColor" d="M20,18C20.5,18 21,17.5 21,17V7C21,6.5 20.5,6 20,6H4C3.5,6 3,6.5 3,7V17C3,17.5 3.5,18 4,18H12L10.5,20H9V21H15V20H13.5L12,18H20Z"/>
-                            </svg>
-                        </div>
-                        <div class="stat-content">
-                            <span class="stat-label">Format</span>
-                            <span class="stat-value">Online</span>
-                        </div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-icon">
-                            <svg viewBox="0 0 24 24" width="24" height="24">
-                                <path fill="currentColor" d="M9,1V3H15V1H17V3H21A2,2 0 0,1 23,5V19A2,2 0 0,1 21,21H3A2,2 0 0,1 1,19V5A2,2 0 0,1 3,3H7V1H9M21,19V8H3V19H21M7,10H17V12H7V10Z"/>
-                            </svg>
-                        </div>
-                        <div class="stat-content">
-                            <span class="stat-label">Commitment</span>
-                            <span class="stat-value">14 weeks | 4-6 hours/week</span>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 p-0">
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="bi bi-award-fill"></i>
+                            </div>
+                            <div class="stat-content d-flex flex-column">
+                                <span class="stat-label">Level</span>
+                                <span class="stat-value">Beginner Level</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-icon">
-                            <svg viewBox="0 0 24 24" width="24" height="24">
-                                <path fill="currentColor" d="M19,2L14,6.5V17.5L19,13V2M6.5,5C4.55,5.07 2.95,6.76 3,8.71C3.05,10.66 4.76,12.26 6.71,12.21C8.66,12.16 10.26,10.45 10.21,8.5C10.16,6.55 8.45,4.95 6.5,5M17.5,17.5H22V19H17.5V17.5Z"/>
-                            </svg>
-                        </div>
-                        <div class="stat-content">
-                            <span class="stat-label">Course Load</span>
-                            <span class="stat-value">8 Modules</span>
+                    <div class="col-lg-3 col-md-6 p-0">
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="bi bi-calendar-week-fill"></i>
+                            </div>
+                            <div class="stat-content d-flex flex-column">
+                                <span class="stat-label">Commitment</span>
+                                <span class="stat-value">14 weeks | 4-6 hours/week</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-icon">
-                            <svg viewBox="0 0 24 24" width="24" height="24">
-                                <path fill="currentColor" d="M7,15H9C9,16.08 10.37,17 12,17C13.63,17 15,16.08 15,15C15,13.9 13.96,13.5 11.76,12.97C9.64,12.44 7,11.78 7,9C7,7.21 8.47,5.69 10.5,5.18V3H13.5V5.18C15.53,5.69 17,7.21 17,9H15C15,7.92 13.63,7 12,7C10.37,7 9,7.92 9,9C9,10.1 10.04,10.5 12.24,11.03C14.36,11.56 17,12.22 17,15C17,16.79 15.53,18.31 13.5,18.82V21H10.5V18.82C8.47,18.31 7,16.79 7,15Z"/>
-                            </svg>
+                    <div class="col-lg-3 col-md-6 p-0">
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="bi bi-book-fill"></i>
+                            </div>
+                            <div class="stat-content d-flex flex-column">
+                                <span class="stat-label">Course Load</span>
+                                <span class="stat-value">8 Modules</span>
+                            </div>
                         </div>
-                        <div class="stat-content">
-                            <span class="stat-label">Price</span>
-                            <span class="stat-value">KSH 190,000 | (4 quarterly installments of KSH 47,500)</span>
+                    </div>
+                    <div class="col-lg-3 col-md-6 p-0">
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="bi bi-currency-exchange"></i>
+                            </div>
+                            <div class="stat-content d-flex flex-column">
+                                <span class="stat-label">Price</span>
+                                <span class="stat-value">KSH 190,000 | (4 quarterly installments of KSH 47,500)</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+
         <!-- Course Content Section -->
-        <section class="course-content">
+        <section class="course-content py-5">
             <div class="container">
                 <!-- Tab Navigation -->
-                <nav class="tab-nav">
+                <nav class="tab-nav d-flex overflow-auto">
                     <button class="tab-btn active" data-tab="overview">Course Overview</button>
-                    <button class="tab-btn" data-tab="objectives">Why this course</button>
-                    <button class="tab-btn" data-tab="prerequisites">Who this course is for</button>
-                    <button class="tab-btn" data-tab="assessment">Assessment</button>
+                    <button class="tab-btn" data-tab="modules">Modules</button>
+                    <button class="tab-btn" data-tab="recommendations">Recommendations</button>
+                    <button class="tab-btn" data-tab="reviews">Reviews</button>
                     <button class="tab-btn" data-tab="instructor">Instructor</button>
                 </nav>
 
                 <!-- Tab Content -->
                 <div class="tab-content">
+                    <!-- Course Overview Tab -->
                     <div class="tab-pane active" id="overview">
                         <h3 style="color: #037b90">Course Overview</h3>
-                        <p>Learn more about Robotics with our comprehensive online course, combining fundamental principles and advanced applications. Navigate through mechanical design, sensor integration, programming paradigms and control systems. Master the art of robot assembly, testing, and deployment through hands-on projects. Organize your learning effectively, building a strong foundation in robotics engineering.</p>
-                        <p>Progress into advanced territory with robot kinematics, dynamics, path planning, and machine learning integration. Our efficient delivery empowers you to harness robotics capabilities for automation, manufacturing, healthcare, and exploration applications.</p>
-                        <div class="highlight-box">
-                            <strong>This course is part of Free Certification Portfolio, you can learn and upskill free of cost and claim Free-Certification at the end of the Course.</strong>
-                        </div>
-                    </div>
-
-                    <div class="tab-pane" id="objectives">
-                        <h3 style="color: #037b90">Why Choose This Robotics Course</h3>
-                        <div class="objectives-grid">
-                            <div class="objective-card">
-                                <h4>🤖 Hands-On Learning</h4>
-                                <p>Work with real robots and simulation software to gain practical experience in robotics programming and control.</p>
-                            </div>
-                            <div class="objective-card">
-                                <h4>🔧 Industry-Relevant Skills</h4>
-                                <p>Learn programming languages and tools used in the robotics industry, including Python, ROS, and embedded systems.</p>
-                            </div>
-                            <div class="objective-card">
-                                <h4>🎯 Project-Based Learning</h4>
-                                <p>Complete real-world projects that demonstrate your ability to design, build, and program robotic systems.</p>
-                            </div>
-                            <div class="objective-card">
-                                <h4>🌟 Expert Guidance</h4>
-                                <p>Learn from experienced robotics engineers and researchers with years of industry and academic experience.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-pane" id="prerequisites">
-                        <h3 style="color: #037b90">Who This Course Is For</h3>
-                        <div class="audience-list">
-                            <div class="audience-item">
-                                <h4>Engineering Students</h4>
-                                <p>Students pursuing mechanical, electrical, or computer engineering who want to specialize in robotics.</p>
-                            </div>
-                            <div class="audience-item">
-                                <h4>Software Developers</h4>
-                                <p>Programmers looking to transition into robotics and embedded systems development.</p>
-                            </div>
-                            <div class="audience-item">
-                                <h4>Technology Enthusiasts</h4>
-                                <p>Individuals passionate about automation, AI, and cutting-edge technology applications.</p>
-                            </div>
-                            <div class="audience-item">
-                                <h4>Career Changers</h4>
-                                <p>Professionals looking to pivot into the rapidly growing robotics and automation industry.</p>
-                            </div>
-                        </div>
-                        <div class="prerequisites-box">
-                            <h4>Prerequisites</h4>
-                            <ul>
-                                <li>Basic understanding of mathematics and physics</li>
-                                <li>Fundamental programming concepts (any language)</li>
-                                <li>Problem-solving mindset and curiosity about technology</li>
-                                <li>No prior robotics experience required</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="tab-pane" id="assessment">
-                        <h3 style="color: #037b90">Assessment Structure</h3>
-                        <div class="assessment-breakdown">
-                            <div class="assessment-item">
-                                <div class="assessment-percentage">60%</div>
-                                <div class="assessment-details">
-                                    <h4>Practical Assignments</h4>
-                                    <p>Hands-on projects involving robot programming, sensor integration, and system design. Weekly assignments build upon each other to create a complete robotic system.</p>
+                        <p>Master the art of strategic media planning and digital advertising with Meta's comprehensive certification program. This industry-recognized course combines fundamental principles with advanced applications in digital marketing.</p>
+                        
+                        <div class="learning-outcomes mt-4">
+                            <h4 style="color: #ff7f50; margin-bottom: 20px;">What you'll learn</h4>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="outcome-item mb-3">
+                                        <i class="bi bi-check2-circle text-success me-2"></i>
+                                        Strategic media planning fundamentals
+                                    </div>
+                                    <div class="outcome-item mb-3">
+                                        <i class="bi bi-check2-circle text-success me-2"></i>
+                                        Advanced audience targeting techniques
+                                    </div>
+                                    <div class="outcome-item mb-3">
+                                        <i class="bi bi-check2-circle text-success me-2"></i>
+                                        Budget optimization strategies
+                                    </div>
+                                    <div class="outcome-item mb-3">
+                                        <i class="bi bi-check2-circle text-success me-2"></i>
+                                        Campaign performance measurement
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="assessment-item">
-                                <div class="assessment-percentage">20%</div>
-                                <div class="assessment-details">
-                                    <h4>Mid-term Examination</h4>
-                                    <p>Comprehensive test covering theoretical concepts, mathematical foundations, and problem-solving in robotics engineering.</p>
-                                </div>
-                            </div>
-                            <div class="assessment-item">
-                                <div class="assessment-percentage">20%</div>
-                                <div class="assessment-details">
-                                    <h4>Final Project</h4>
-                                    <p>Capstone project where students design, build, and demonstrate a working robotic system that solves a real-world problem.</p>
+                                <div class="col-lg-6">
+                                    <div class="outcome-item mb-3">
+                                        <i class="bi bi-check2-circle text-success me-2"></i>
+                                        Facebook and Instagram advertising
+                                    </div>
+                                    <div class="outcome-item mb-3">
+                                        <i class="bi bi-check2-circle text-success me-2"></i>
+                                        Data-driven decision making
+                                    </div>
+                                    <div class="outcome-item mb-3">
+                                        <i class="bi bi-check2-circle text-success me-2"></i>
+                                        Cross-platform campaign management
+                                    </div>
+                                    <div class="outcome-item mb-3">
+                                        <i class="bi bi-check2-circle text-success me-2"></i>
+                                        Industry best practices and trends
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="grading-scale">
-                            <h4>Grading Scale</h4>
-                            <div class="grades-grid">
-                                <div class="grade-item">A: 85-100%</div>
-                                <div class="grade-item">B: 70-84%</div>
-                                <div class="grade-item">C: 55-69%</div>
-                                <div class="grade-item">D: 40-54%</div>
-                                <div class="grade-item">F: Below 40%</div>
+                    </div>
+
+                    <!-- Modules Tab -->
+                    <div class="tab-pane" id="modules">
+                        <h3 style="color: #037b90">There are 4 modules in this course</h3>
+                        <p class="mb-4">Explore comprehensive modules designed to build your expertise in media planning and digital advertising step by step.</p>
+                        
+                        <div class="modules-list">
+                            <!-- Module 1 -->
+                            <div class="module-item" onclick="toggleModule('module1')">
+                                <div class="module-header">
+                                    <div class="module-info">
+                                        <h4>Introduction to Strategic Media Planning</h4>
+                                        <p class="module-meta">Module 1 • 4 hours to complete</p>
+                                    </div>
+                                    <div class="module-toggle">
+                                        <i class="bi bi-chevron-down"></i>
+                                    </div>
+                                </div>
+                                <div class="module-content" id="module1-content">
+                                    <p>Master the fundamentals of media planning and understand how digital advertising fits into modern marketing strategies.</p>
+                                    <div class="module-includes">
+                                        <h5>What's included</h5>
+                                        <div class="includes-grid">
+                                            <span><i class="bi bi-play-circle"></i> 8 videos</span>
+                                            <span><i class="bi bi-file-text"></i> 12 readings</span>
+                                            <span><i class="bi bi-pencil-square"></i> 3 assignments</span>
+                                            <span><i class="bi bi-chat"></i> 2 discussion prompts</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Module 2 -->
+                            <div class="module-item" onclick="toggleModule('module2')">
+                                <div class="module-header">
+                                    <div class="module-info">
+                                        <h4>Advanced Audience Targeting</h4>
+                                        <p class="module-meta">Module 2 • 5 hours to complete</p>
+                                    </div>
+                                    <div class="module-toggle">
+                                        <i class="bi bi-chevron-down"></i>
+                                    </div>
+                                </div>
+                                <div class="module-content" id="module2-content">
+                                    <p>Learn advanced techniques for identifying, segmenting, and targeting your ideal audience across Meta's platforms.</p>
+                                    <div class="module-includes">
+                                        <h5>What's included</h5>
+                                        <div class="includes-grid">
+                                            <span><i class="bi bi-play-circle"></i> 10 videos</span>
+                                            <span><i class="bi bi-file-text"></i> 8 readings</span>
+                                            <span><i class="bi bi-pencil-square"></i> 4 assignments</span>
+                                            <span><i class="bi bi-chat"></i> 3 discussion prompts</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Module 3 -->
+                            <div class="module-item" onclick="toggleModule('module3')">
+                                <div class="module-header">
+                                    <div class="module-info">
+                                        <h4>Campaign Optimization & Budget Management</h4>
+                                        <p class="module-meta">Module 3 • 3 hours to complete</p>
+                                    </div>
+                                    <div class="module-toggle">
+                                        <i class="bi bi-chevron-down"></i>
+                                    </div>
+                                </div>
+                                <div class="module-content" id="module3-content">
+                                    <p>Optimize your campaigns for maximum ROI and learn strategic budget allocation across different advertising objectives.</p>
+                                    <div class="module-includes">
+                                        <h5>What's included</h5>
+                                        <div class="includes-grid">
+                                            <span><i class="bi bi-play-circle"></i> 6 videos</span>
+                                            <span><i class="bi bi-file-text"></i> 5 readings</span>
+                                            <span><i class="bi bi-pencil-square"></i> 2 assignments</span>
+                                            <span><i class="bi bi-chat"></i> 1 discussion prompt</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Module 4 -->
+                            <div class="module-item" onclick="toggleModule('module4')">
+                                <div class="module-header">
+                                    <div class="module-info">
+                                        <h4>Analytics & Performance Measurement</h4>
+                                        <p class="module-meta">Module 4 • 2 hours to complete</p>
+                                    </div>
+                                    <div class="module-toggle">
+                                        <i class="bi bi-chevron-down"></i>
+                                    </div>
+                                </div>
+                                <div class="module-content" id="module4-content">
+                                    <p>Master data analysis, performance tracking, and reporting to make informed decisions and demonstrate campaign success.</p>
+                                    <div class="module-includes">
+                                        <h5>What's included</h5>
+                                        <div class="includes-grid">
+                                            <span><i class="bi bi-play-circle"></i> 5 videos</span>
+                                            <span><i class="bi bi-file-text"></i> 7 readings</span>
+                                            <span><i class="bi bi-pencil-square"></i> 3 assignments</span>
+                                            <span><i class="bi bi-chat"></i> 2 discussion prompts</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
+                    <!-- Recommendations Tab -->
+                    <div class="tab-pane" id="recommendations">
+                        <h3 style="color: #037b90">Explore more from Digital Marketing</h3>
+                        <div class="recommendations-filters mb-4">
+                            <button class="filter-btn active">Recommended</button>
+                            <button class="filter-btn">Specializations</button>
+                            <button class="filter-btn">Degrees</button>
+                        </div>
+                        
+                        <div class="row g-4">
+                            <div class="col-lg-6">
+                                <div class="recommendation-card">
+                                    <div class="card-badge">Free Trial</div>
+                                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Social Media Marketing" class="card-image">
+                                    <div class="card-content">
+                                        <div class="card-provider">
+                                            <img src="https://logo.clearbit.com/meta.com" alt="Meta" class="provider-logo">
+                                            <span>Meta</span>
+                                        </div>
+                                        <h4>Social Media Marketing Professional</h4>
+                                        <p class="card-type">Specialization</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-6">
+                                <div class="recommendation-card">
+                                    <div class="card-badge">Free Trial</div>
+                                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Digital Analytics" class="card-image">
+                                    <div class="card-content">
+                                        <div class="card-provider">
+                                            <img src="https://logo.clearbit.com/google.com" alt="Google" class="provider-logo">
+                                            <span>Google</span>
+                                        </div>
+                                        <h4>Google Analytics Certified Professional</h4>
+                                        <p class="card-type">Course</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-6">
+                                <div class="recommendation-card">
+                                    <div class="card-badge">Free Trial</div>
+                                    <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Content Marketing" class="card-image">
+                                    <div class="card-content">
+                                        <div class="card-provider">
+                                            <img src="https://logo.clearbit.com/hubspot.com" alt="HubSpot" class="provider-logo">
+                                            <span>HubSpot</span>
+                                        </div>
+                                        <h4>Content Marketing Fundamentals</h4>
+                                        <p class="card-type">Course</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-6">
+                                <div class="recommendation-card">
+                                    <div class="card-badge">Free Trial</div>
+                                    <img src="https://images.unsplash.com/photo-1553028826-f4804151e04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Digital Strategy" class="card-image">
+                                    <div class="card-content">
+                                        <div class="card-provider">
+                                            <img src="https://logo.clearbit.com/facebook.com" alt="Meta" class="provider-logo">
+                                            <span>Meta</span>
+                                        </div>
+                                        <h4>Digital Marketing Strategy</h4>
+                                        <p class="card-type">Specialization</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center mt-4">
+                            <button class="btn btn-outline-primary">Show 8 more</button>
+                        </div>
+                    </div>
+
+                    <!-- Reviews Tab -->
+                    <div class="tab-pane" id="reviews">
+                        <div class="reviews-header d-flex justify-content-between align-items-center mb-4">
+                            <h3 style="color: #037b90">Learner reviews</h3>
+                            <span class="review-count">Showing 3 of 3261</span>
+                        </div>
+                        
+                        <div class="reviews-summary mb-4">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="rating-overview">
+                                        <div class="main-rating">
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <span class="rating-number">4.7</span>
+                                            <span class="total-reviews">3,261 reviews</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="rating-breakdown">
+                                        <div class="rating-bar">
+                                            <span>5 stars</span>
+                                            <div class="progress mx-3">
+                                                <div class="progress-bar bg-primary" style="width: 76.28%"></div>
+                                            </div>
+                                            <span>76.28%</span>
+                                        </div>
+                                        <div class="rating-bar">
+                                            <span>4 stars</span>
+                                            <div class="progress mx-3">
+                                                <div class="progress-bar bg-primary" style="width: 17.16%"></div>
+                                            </div>
+                                            <span>17.16%</span>
+                                        </div>
+                                        <div class="rating-bar">
+                                            <span>3 stars</span>
+                                            <div class="progress mx-3">
+                                                <div class="progress-bar bg-primary" style="width: 3.68%"></div>
+                                            </div>
+                                            <span>3.68%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="reviews-list">
+                            <div class="review-item">
+                                <div class="reviewer-info">
+                                    <div class="reviewer-avatar">PP</div>
+                                    <div class="reviewer-details">
+                                        <div class="reviewer-rating">
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <span>4</span>
+                                            <span class="review-date">Reviewed on Sep 10, 2024</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="review-text">Course is very informative & good. In terms of getting certified, you can allow us to write assignments so we can find the feedback before subscribing.</p>
+                            </div>
+                            
+                            <div class="review-item">
+                                <div class="reviewer-info">
+                                    <div class="reviewer-avatar">CS</div>
+                                    <div class="reviewer-details">
+                                        <div class="reviewer-rating">
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <span>5</span>
+                                            <span class="review-date">Reviewed on May 15, 2024</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="review-text">I definitely appreciated that this didn't cover just text-to-image tools. I feel that even if someone is not new to AI, they might do something during this course that they haven't done before.</p>
+                            </div>
+                            
+                            <div class="review-item">
+                                <div class="reviewer-info">
+                                    <div class="reviewer-avatar">CT</div>
+                                    <div class="reviewer-details">
+                                        <div class="reviewer-rating">
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <span>5</span>
+                                            <span class="review-date">Reviewed on May 24, 2024</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="review-text">This course opened my eyes to the extraordinary potential that Generative AI offers anyone who wants to be more productive, more creative and more valuable.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center mt-4">
+                            <button class="btn btn-outline-primary">View more reviews</button>
+                        </div>
+                    </div>
+
+                    <!-- Instructor Tab (unchanged) -->
                     <div class="tab-pane" id="instructor">
                         <h3 style="color: #037b90">Meet Your Instructor</h3>
                         <div class="instructor-profile">
-                            <div class="instructor-image">
-                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Prof. James Kimani">
-                            </div>
-                            <div class="instructor-info">
-                                <h4>Prof. James Kimani</h4>
-                                <p class="instructor-title">Professor of Robotics Engineering</p>
-                                <p class="instructor-bio">
-                                    Prof. Kimani is a leading expert in robotics with over 15 years of experience in both academia and industry. He holds a Ph.D. in Robotics from MIT and has published over 50 research papers in top-tier journals. His research focuses on autonomous systems, machine learning in robotics, and human-robot interaction.
-                                </p>
-                                <div class="instructor-credentials">
-                                    <div class="credential">
-                                        <strong>Education:</strong> Ph.D. Robotics, MIT; M.S. Mechanical Engineering, Stanford
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <div class="instructor-image">
+                                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Prof. James Kimani">
                                     </div>
-                                    <div class="credential">
-                                        <strong>Experience:</strong> 15+ years in robotics research and development
-                                    </div>
-                                    <div class="credential">
-                                        <strong>Publications:</strong> 50+ peer-reviewed papers in robotics journals
+                                </div>
+                                <div class="col-lg-9">
+                                    <div class="instructor-info">
+                                        <h4>Prof. James Kimani</h4>
+                                        <p class="instructor-title">Professor of Robotics Engineering</p>
+                                        <p class="instructor-bio">
+                                            Prof. Kimani is a leading expert in robotics with over 15 years of experience in both academia and industry. He holds a Ph.D. in Robotics from MIT and has published over 50 research papers in top-tier journals. His research focuses on autonomous systems, machine learning in robotics, and human-robot interaction.
+                                        </p>
+                                        <div class="instructor-credentials mt-4">
+                                            <div class="credential">
+                                                <strong>Education:</strong> Ph.D. Robotics, MIT; M.S. Mechanical Engineering, Stanford
+                                            </div>
+                                            <div class="credential">
+                                                <strong>Experience:</strong> 15+ years in robotics research and development
+                                            </div>
+                                            <div class="credential">
+                                                <strong>Publications:</strong> 50+ peer-reviewed papers in robotics journals
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -306,15 +531,17 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer-custom">
         <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2023 University of Nairobi</p>
+            <div class="d-flex justify-content-between align-items-center">
+                <p class="mb-0">&copy; 2023 University of Nairobi</p>
                 <button class="help-btn">?</button>
             </div>
         </div>
     </footer>
 
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
