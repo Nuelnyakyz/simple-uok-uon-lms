@@ -72,7 +72,7 @@ function toggleModule(moduleId) {
     const moduleItem = document.querySelector(`#${moduleId}-content`).closest('.module-item');
     const moduleContent = document.getElementById(`${moduleId}-content`);
     const toggleIcon = moduleItem.querySelector('.module-toggle i');
-    
+
     // Toggle the module content visibility
     if (moduleContent.classList.contains('active')) {
         moduleContent.classList.remove('active');
@@ -86,8 +86,37 @@ function toggleModule(moduleId) {
             item.classList.remove('expanded');
         });
         
+        // Close all detailed content when switching modules
+        document.querySelectorAll('.module-detailed-content').forEach(content => {
+            content.classList.remove('active');
+        });
+        document.querySelectorAll('.show-more-btn').forEach(btn => {
+            btn.classList.remove('expanded');
+            btn.innerHTML = 'Show info about module content <i class="bi bi-chevron-down"></i>';
+        });
+
         // Open the clicked module
         moduleContent.classList.add('active');
         moduleItem.classList.add('expanded');
+    }
+}
+
+// Toggle detailed content functionality
+function toggleDetailedContent(event, detailedId) {
+    event.stopPropagation(); // Prevent module toggle when clicking the button
+    
+    const detailedContent = document.getElementById(detailedId);
+    const button = event.target.closest('.show-more-btn');
+    
+    if (detailedContent.classList.contains('active')) {
+        // Hide detailed content
+        detailedContent.classList.remove('active');
+        button.classList.remove('expanded');
+        button.innerHTML = 'Show info about module content <i class="bi bi-chevron-down"></i>';
+    } else {
+        // Show detailed content
+        detailedContent.classList.add('active');
+        button.classList.add('expanded');
+        button.innerHTML = 'Hide info about module content <i class="bi bi-chevron-down"></i>';
     }
 }

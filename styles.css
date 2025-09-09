@@ -638,6 +638,90 @@ body {
 .includes-grid i {
     color: #037b90;
 }
+ /* Module Detailed Content */
+.module-detailed-content {
+    display: none;
+    border-top: 1px solid #e0e0e0;
+    background: #f8f9fa;
+    animation: slideDown 0.3s ease-out;
+}
+
+.module-detailed-content.active {
+    display: block;
+}
+
+.module-detailed-inner {
+    padding: 25px;
+}
+
+.content-section {
+    margin-bottom: 20px;
+}
+
+.content-section h6 {
+    color: #037b90;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.content-list {
+    list-style: none;
+    padding: 0;
+}
+
+.content-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 0;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.content-list li i {
+    color: #037b90;
+    font-size: 0.8rem;
+}
+
+.show-more-btn {
+    background: #037b90;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+}
+
+.show-more-btn:hover {
+    background: #026670;
+    transform: translateY(-1px);
+}
+
+.show-more-btn i {
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+.show-more-btn.expanded i {
+    transform: rotate(180deg);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+    from { opacity: 0; max-height: 0; }
+    to { opacity: 1; max-height: 300px; }
+}
 
 /* Recommendations Styles */
 .recommendations-filters {
