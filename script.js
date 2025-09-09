@@ -1,42 +1,46 @@
 // Tab functionality
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, initializing tabs...');
+    
     const tabBtns = document.querySelectorAll('.tab-btn');
     const tabPanes = document.querySelectorAll('.tab-pane');
     
-    // Initialize - make sure the first tab is active
-    if (tabBtns.length > 0 && tabPanes.length > 0) {
-        // Remove active class from all first
+    console.log('Found', tabBtns.length, 'tab buttons');
+    console.log('Found', tabPanes.length, 'tab panes');
+    
+    function activateTab(tabId) {
+        // Remove active class from all buttons and panes
         tabBtns.forEach(btn => btn.classList.remove('active'));
         tabPanes.forEach(pane => pane.classList.remove('active'));
         
-        // Set first tab as active
-        tabBtns[0].classList.add('active');
-        const firstTabId = tabBtns[0].getAttribute('data-tab');
-        const firstPane = document.getElementById(firstTabId);
-        if (firstPane) {
-            firstPane.classList.add('active');
+        // Find and activate the target button and pane
+        const targetBtn = Array.from(tabBtns).find(btn => btn.getAttribute('data-tab') === tabId);
+        const targetPane = document.getElementById(tabId);
+        
+        if (targetBtn && targetPane) {
+            targetBtn.classList.add('active');
+            targetPane.classList.add('active');
+            // Force DOM reflow to ensure rendering
+            targetPane.offsetHeight; // Trigger reflow
+            console.log('Activated tab:', tabId);
+        } else {
+            console.error('Could not find tab button or pane for ID:', tabId);
         }
+    }
+    
+    // Initialize the first tab as active
+    if (tabBtns.length > 0 && tabPanes.length > 0) {
+        const firstTabId = tabBtns[0].getAttribute('data-tab');
+        activateTab(firstTabId);
     }
     
     // Add click event listeners to all tab buttons
     tabBtns.forEach(btn => {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
-            
-            // Remove active class from all buttons and panes
-            tabBtns.forEach(b => b.classList.remove('active'));
-            tabPanes.forEach(pane => pane.classList.remove('active'));
-            
-            // Add active class to clicked button
-            this.classList.add('active');
-            
-            // Show corresponding tab pane
             const tabId = this.getAttribute('data-tab');
-            const targetPane = document.getElementById(tabId);
-            
-            if (targetPane) {
-                targetPane.classList.add('active');
-            }
+            console.log('Clicked tab:', tabId);
+            activateTab(tabId);
         });
     });
 });
