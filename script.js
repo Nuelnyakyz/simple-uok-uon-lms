@@ -1,7 +1,7 @@
 // Tab functionality
 document.addEventListener('DOMContentLoaded', function() {
-    const tabBtns = document.querySelectorAll('.tab-btn');
-    const tabPanes = document.querySelectorAll('.tab-pane');
+    const tabBtns = document.querySelectorAll('.ouk-tab-btn');
+    const tabPanes = document.querySelectorAll('.ouk-tab-pane');
     
     // Initialize - make sure the first tab is active
     if (tabBtns.length > 0 && tabPanes.length > 0) {
