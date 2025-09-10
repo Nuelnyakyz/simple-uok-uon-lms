@@ -1,178 +1,182 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Available Courses - University of Nairobi</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Introduction to Robotics - University of Nairobi</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="index-styles.css">
 </head>
 <body>
-    <header class="header">
-        <div class="header-content">
-            <button class="menu-btn">☰</button>
-            <div class="logo-section">
-                <img src="/uon-logo.png" alt="University of Nairobi" class="logo">
-                <span class="university-name">UNIVERSITY OF NAIROBI</span>
+    <!-- Header -->
+    <header class="header-custom">
+        <div class="container-fluid h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-auto">
+                    <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+                </div>
+                <div class="col d-flex align-items-center">
+                    <img src="/uok-logo.png" alt="University of Nairobi" class="logo me-3">
+                    <span class="university-name">OPEN UNIVERSITY OF KENYA</span>
+                </div>
+                <div class="col-auto d-flex align-items-center gap-3">
+                    <button class="btn btn-primary-custom" onclick="enrollInCourse('robotics')">Login</button>
+                    <div class="col-auto d-flex align-items-center gap-3">
+                        <button class="btn btn-secondary-custom" onclick="enrollInCourse('robotics')">Sign Up</button>
+                    </div>
+                </div>
             </div>
-            <button class="login-btn">Log in</button>
         </div>
     </header>
 
-    <aside class="sidebar">
-        <nav class="sidebar-nav">
-            <a href="index.html" class="nav-item">
-                <svg class="nav-icon" viewBox="0 0 24 24">
-                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-                </svg>
-            </a>
-            <a href="#" class="nav-item">
-                <svg class="nav-icon" viewBox="0 0 24 24">
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                </svg>
-            </a>
-            <a href="#" class="nav-item active">
-                <svg class="nav-icon" viewBox="0 0 24 24">
-                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
-                </svg>
-            </a>
-            <a href="#" class="nav-item">
-                <svg class="nav-icon" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                </svg>
-            </a>
-        </nav>
-    </aside>
 
     <main class="main-content">
-        <div class="container">
-            <h1 class="page-title">Available courses</h1>
+        <!-- Hero Section with Background Image -->
+        <section class="hero-section">
+            <!-- Background Image -->
+            <div class="hero-background-image">
+                <img src="landing-image.png"
+                alt="African students in tertiary institution"
+                class="w-100 h-100">
+            </div>
             
-            <div class="courses-grid">
+            <!-- Overlay -->
+            <div class="hero-overlay"></div>
+            
+            <!-- Content -->
+            <div class="container hero-content ms-lg-0">
+                <div class="row ms-lg-0">
+                    <div class="col-lg-7 col-md-9 mx-auto ms-lg-0">
+                        <div class="hero-info-card">
+                            <h1><span class="highlight">Future-proof</span> your career</h1>
+                            <p>Make your next career move with online courses from 200+ world-class universities and leading organizations. Build skills that matter in today's digital world.</p>
 
-                <div class="course-card" data-course="robotics" onclick="goToCourse('robotics')" style="cursor: pointer;">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Introduction to Robotics">
-                        <div class="course-badge free">FREE</div>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="course-title">Introduction to Robotics</h3>
-                        <div class="course-meta">
-                            <div class="meta-item">
-                                <span class="meta-label">Level:</span>
-                                <span class="meta-value">Beginner</span>
-                            </div>
-                        </div>
-                        <div class="course-description">
-                            <p>Learn the fundamentals of robotics including robot design, programming, and control systems. This course covers basic mechanical principles, sensor integration, and hands-on programming with popular robotics platforms.</p>
-                        </div>
-                        <div class="course-footer">
-                            <span class="course-price">Free</span>
-                            <button class="enter-course-btn" onclick="event.stopPropagation(); goToCourse('robotics')">
-                                <span>View</span>
-                                <svg class="arrow-icon" viewBox="0 0 24 24">
-                                    <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                            <p class="hero-subtext">Join thousands of learners who are already advancing their careers. Start learning today with flexible schedules, expert instruction, and recognized certifications.</p>
 
-                <div class="course-card" data-course="data-science" onclick="goToCourse('data-science')" style="cursor: pointer;">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Data Science Fundamentals">
-                        <div class="course-badge free">FREE</div>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="course-title">Data Science Fundamentals</h3>
-                        <div class="course-meta">
-                            <div class="meta-item">
-                                <span class="meta-label">Level:</span>
-                                <span class="meta-value">Intermediate</span>
+                            <div class="hero-buttons">
+                                <a href="#courses" class="btn-explore">Explore courses</a>
+                                <a href="#unlimited" class="btn-unlimited">Subscribe to Unlimited</a>
                             </div>
-                        </div>
-                        <div class="course-description">
-                            <p>Master the essential skills of data science including statistical analysis, machine learning, and data visualization. Work with Python, R, and popular libraries to extract insights from complex datasets.</p>
-                        </div>
-                        <div class="course-footer">
-                            <span class="course-price">Free</span>
-                            <button class="enter-course-btn" onclick="event.stopPropagation(); goToCourse('data-science')">
-                                <span>View</span>
-                                <svg class="arrow-icon" viewBox="0 0 24 24">
-                                    <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="course-card" data-course="mobile-dev" onclick="goToCourse('mobile-dev')" style="cursor: pointer;">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Mobile App Development">
-                        <div class="course-badge paid">PAID</div>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="course-title">Mobile App Development</h3>
-                        <div class="course-meta">
-                            <div class="meta-item">
-                                <span class="meta-label">Level:</span>
-                                <span class="meta-value">Professional</span>
-                            </div>
-                        </div>
-                        <div class="course-description">
-                            <p>Build professional cross-platform mobile applications using React Native and Flutter. Learn to design user interfaces, implement backend integration, and deploy apps to both iOS and Android app stores.</p>
-                        </div>
-                        <div class="course-footer">
-                            <span class="course-price">$299</span>
-                            <button class="enter-course-btn" onclick="event.stopPropagation(); goToCourse('mobile-dev')">
-                                <span>View</span>
-                                <svg class="arrow-icon" viewBox="0 0 24 24">
-                                    <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="course-card" data-course="cybersecurity" onclick="goToCourse('cybersecurity')" style="cursor: pointer;">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Cybersecurity Essentials">
-                        <div class="course-badge free">FREE</div>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="course-title">Cybersecurity Essentials</h3>
-                        <div class="course-meta">
-                            <div class="meta-item">
-                                <span class="meta-label">Level:</span>
-                                <span class="meta-value">Intermediate</span>
-                            </div>
-                        </div>
-                        <div class="course-description">
-                            <p>Develop critical cybersecurity skills including network security, ethical hacking, and threat assessment. Learn to identify vulnerabilities, implement security protocols, and protect digital assets from cyber attacks.</p>
-                        </div>
-                        <div class="course-footer">
-                            <span class="course-price">Free</span>
-                            <button class="enter-course-btn" onclick="event.stopPropagation(); goToCourse('cybersecurity')">
-                                <span>View</span>
-                                <svg class="arrow-icon" viewBox="0 0 24 24">
-                                    <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
-                                </svg>
-                            </button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <!-- Search Section -->
+        <section class="search-section">
+            <div class="container">
+                <div class="search-container">
+                    <h2>Free Online Courses With Certificates & Diplomas</h2>
+                    <form class="search-form" onsubmit="searchCourses(event)">
+                        <input 
+                            type="text" 
+                            class="search-input" 
+                            placeholder="What do you want to learn today?"
+                            id="courseSearch"
+                            autocomplete="off"
+                        >
+                        <button type="submit" class="search-btn">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section pt-3">
+            <div class="container">
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <i class="bi bi-book stat-icon"></i>
+                        <span class="stat-number" data-count="2500">0</span>
+                        <div class="stat-label">Courses Available</div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="bi bi-people stat-icon"></i>
+                        <span class="stat-number" data-count="450000">0</span>
+                        <div class="stat-label">Students Enrolled</div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="bi bi-person-badge stat-icon"></i>
+                        <span class="stat-number" data-count="1200">0</span>
+                        <div class="stat-label">Expert Instructors</div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="bi bi-award stat-icon"></i>
+                        <span class="stat-number" data-count="98">0</span>
+                        <div class="stat-label">Success Rate %</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="categories-section">
+            <div class="container">
+                <h2 class="section-title">Explore 5,500+ Free Online Courses</h2>
+                <div class="categories-grid" id="categoriesGrid">
+                    <!-- Categories will be dynamically populated -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular Courses Section -->
+        <section class="courses-section">
+            <div class="container">
+                <h2 class="section-title">Popular Courses</h2>
+                <div class="courses-grid" id="popularCoursesGrid">
+                    <!-- Popular courses will be dynamically populated -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Trending Courses Section -->
+        <section class="courses-section">
+            <div class="container">
+                <h2 class="section-title">Trending Courses</h2>
+                <div class="courses-grid" id="trendingCoursesGrid">
+                    <!-- Trending courses will be dynamically populated -->
+                </div>
+            </div>
+        </section>
+
+        <!-- New Courses Section -->
+        <section class="courses-section">
+            <div class="container">
+                <h2 class="section-title">New Courses</h2>
+                <div class="courses-grid" id="newCoursesGrid">
+                    <!-- New courses will be dynamically populated -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section">
+            <div class="container">
+                <h2 class="section-title">What Our Students Say</h2>
+                <div class="testimonials-grid" id="testimonialsGrid">
+                    <!-- Testimonials will be dynamically populated -->
+                </div>
+            </div>
+        </section>
+        
     </main>
 
-    <footer class="footer">
+    <!-- Footer -->
+     <footer class="footer-custom">
         <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2023 University of Nairobi</p>
-                <button class="help-btn">?</button>
+            <div class="d-flex justify-content-between align-items-center">
+                <p class="mb-0">&copy; 2025 Open University of Kenya</p>
+                <button class="help-btn" onclick="showHelp()">?</button>
             </div>
         </div>
     </footer>
 
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
-</html> -->
+</html>
