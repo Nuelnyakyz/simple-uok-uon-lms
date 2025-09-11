@@ -346,28 +346,29 @@ const mockCourses = {
 };
 
 
-// Mock data for testimonials
+
+// Mock data for testimonials with African avatar images
 const mockTestimonials = [
     {
         id: 1,
         quote: "The courses here transformed my career completely. The instructors are world-class and the content is always up-to-date with industry standards. I landed my dream job within 3 months of completing the program.",
         author: "Mary Wanjiru",
         role: "Data Scientist at Safaricom",
-        avatar: "MW"
+        avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=150&h=150&fit=crop&crop=face"
     },
     {
         id: 2,
         quote: "Flexible learning that fits my busy schedule. The quality of education rivals traditional universities, but with the convenience of learning from anywhere. Highly recommend to working professionals.",
         author: "James Ochieng",
         role: "Marketing Manager at KCB Bank",
-        avatar: "JO"
+        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
     },
     {
         id: 3,
         quote: "The practical approach to learning and real-world projects helped me build a strong portfolio. The community support and networking opportunities are invaluable for career growth.",
         author: "Fatuma Ali",
         role: "Software Developer at iHub",
-        avatar: "FA"
+        avatar: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=150&h=150&fit=crop&crop=face"
     }
 ];
 
@@ -413,7 +414,7 @@ function createTestimonialCard(testimonial) {
         <div class="testimonial-card">
             <p class="testimonial-quote">${testimonial.quote}</p>
             <div class="testimonial-author">
-                <div class="author-avatar">${testimonial.avatar}</div>
+                <img src="${testimonial.avatar}" alt="${testimonial.author}" class="author-avatar" />
                 <div class="author-name">${testimonial.author}</div>
                 <div class="author-role">${testimonial.role}</div>
             </div>
