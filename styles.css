@@ -525,6 +525,14 @@ body {
     border: none;
 }
 
+.knowledge-skills {
+    background: #e8f4f8;
+    padding: 25px;
+    border-radius: 12px;
+    border: none;
+}
+
+
 .skills-tags {
     display: flex;
     flex-wrap: wrap;
