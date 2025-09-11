@@ -191,6 +191,62 @@ const mockCategories = [
     { name: 'Teaching & Academics', icon: '🎓', count: '1,631 Courses', color: '#607d8b' }
 ];
 
+// Mock data for trust partners
+const trustPartners = [
+    {
+        id: 1,
+        name: "KUCCPS",
+        description: "Kenya Universities and Colleges Central Placement Service - Official partner for student placement and guidance",
+        logo: "🎓"
+    },
+    {
+        id: 2,
+        name: "Ministry of Education - KE",
+        description: "Government of Kenya Ministry of Education - Ensuring quality education standards nationwide",
+        logo: "🏛️"
+    },
+    {
+        id: 3,
+        name: "UASU",
+        description: "Universities Academic Staff Union - Supporting academic excellence and professional development",
+        logo: "👨‍🎓"
+    }
+];
+
+// Mock data for top instructors
+const topInstructors = [
+    {
+        id: 1,
+        name: "Dr. Sarah Wanjiku",
+        expertise: "Data Science & AI",
+        bio: "Leading AI researcher with 15+ years experience at Google and Microsoft. Specializes in machine learning applications for African markets. Published 50+ research papers and mentored 200+ data scientists.",
+        avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=300&h=200&fit=crop&crop=face",
+        students: "12,500+",
+        courses: "18",
+        rating: "4.9"
+    },
+    {
+        id: 2,
+        name: "Prof. James Kipkoech",
+        expertise: "Engineering & Technology",
+        bio: "Former Tesla engineering director and current MIT visiting professor. Expert in renewable energy systems and sustainable technology. Led major infrastructure projects across East Africa.",
+        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=200&fit=crop&crop=face",
+        students: "8,900+",
+        courses: "12",
+        rating: "4.8"
+    },
+    {
+        id: 3,
+        name: "Dr. Amina Hassan",
+        expertise: "Business & Finance",
+        bio: "Former World Bank economist and startup founder. Expertise in African financial markets, blockchain technology, and entrepreneurship. Advisor to 50+ successful startups.",
+        avatar: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=300&h=200&fit=crop&crop=face",
+        students: "15,200+",
+        courses: "22",
+        rating: "4.9"
+    }
+];
+
 // Updated mock data for courses with prices
 const mockCourses = {
     popular: [
@@ -385,6 +441,17 @@ function createCategoryCard(category) {
     `;
 }
 
+// Function to create trust partner cards
+function createTrustCard(partner) {
+    return `
+        <div class="trust-card">
+            <div class="trust-logo">${partner.logo}</div>
+            <div class="trust-name">${partner.name}</div>
+            <div class="trust-description">${partner.description}</div>
+        </div>
+    `;
+}
+
 // Function to create course cards
 function createCourseCard(course) {
     const priceClass = course.price === 'Free' ? 'free' : '';
@@ -402,6 +469,36 @@ function createCourseCard(course) {
                 </div>
                 <div class="course-footer">
                     <button class="course-btn">Start Learning</button>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+// Function to create instructor cards
+function createInstructorCard(instructor) {
+    return `
+        <div class="instructor-card" onclick="viewInstructor(${instructor.id})">
+            <div class="instructor-avatar">
+                <img src="${instructor.avatar}" alt="${instructor.name}" />
+            </div>
+            <div class="instructor-content">
+                <h3 class="instructor-name">${instructor.name}</h3>
+                <div class="instructor-expertise">${instructor.expertise}</div>
+                <p class="instructor-bio">${instructor.bio}</p>
+                <div class="instructor-stats">
+                    <div class="stat-group">
+                        <span class="stat-number-instructor">${instructor.students}</span>
+                        <span class="stat-label-instructor">Students</span>
+                    </div>
+                    <div class="stat-group">
+                        <span class="stat-number-instructor">${instructor.courses}</span>
+                        <span class="stat-label-instructor">Courses</span>
+                    </div>
+                    <div class="stat-group">
+                        <span class="stat-number-instructor">${instructor.rating}</span>
+                        <span class="stat-label-instructor">Rating</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -455,6 +552,49 @@ function populateSections() {
     }
 }
 
+// Function to populate trust partners
+function populateTrustSection() {
+    const trustGrid = document.getElementById('trustGrid');
+    if (trustGrid) {
+        trustGrid.innerHTML = trustPartners.map(createTrustCard).join('');
+    }
+}
+
+// Function to populate instructors
+function populateInstructorsSection() {
+    const instructorsGrid = document.getElementById('instructorsGrid');
+    if (instructorsGrid) {
+        instructorsGrid.innerHTML = topInstructors.map(createInstructorCard).join('');
+    }
+}
+
+// Enhanced search with filters
+function applyFilters() {
+    const level = document.getElementById('levelFilter').value;
+    const category = document.getElementById('categoryFilter').value;
+    const price = document.getElementById('priceFilter').value;
+    const searchTerm = document.getElementById('courseSearch').value;
+    
+    console.log('Filters applied:', { level, category, price, searchTerm });
+    
+    // Show user feedback
+    const filters = [];
+    if (level) filters.push(`Level: ${level}`);
+    if (category) filters.push(`Category: ${category}`);
+    if (price) filters.push(`Price: ${price}`);
+    if (searchTerm) filters.push(`Search: ${searchTerm}`);
+    
+    if (filters.length > 0) {
+        alert(`Searching with filters: ${filters.join(', ')}`);
+    } else {
+        alert('Please select at least one filter or enter a search term');
+    }
+    
+    // Here you would implement the actual filtering logic
+    // filterCourses(level, category, price, searchTerm);
+}
+
+
 // Event handlers
 function exploreCourses(category) {
     console.log(`Exploring courses in: ${category}`);
@@ -466,9 +606,26 @@ function viewCourse(courseId) {
     // Implement course detail view logic
 }
 
+// View instructor details
+function viewInstructor(instructorId) {
+    const instructor = topInstructors.find(i => i.id === instructorId);
+    if (instructor) {
+        alert(`Viewing profile for ${instructor.name} - ${instructor.expertise} specialist`);
+        // Implement instructor detail view
+    }
+}
+
+// Enhanced search function (updated)
+function searchCourses(event) {
+    event.preventDefault();
+    applyFilters(); // Use the new filter function
+}
+
 // Initialize sections when page loads
 document.addEventListener('DOMContentLoaded', function() {
     populateSections();
+    populateTrustSection();
+    populateInstructorsSection();
     
     // Add scroll animations for course cards
     const observer = new IntersectionObserver((entries) => {
@@ -479,6 +636,25 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Add filter reset functionality
+    const filterSelects = document.querySelectorAll('.filter-select');
+    filterSelects.forEach(select => {
+        select.addEventListener('change', function() {
+            // Optional: Auto-apply filters on change
+            // applyFilters();
+        });
+    });
+
+    const searchInput = document.getElementById('courseSearch');
+    if (searchInput) {
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                applyFilters();
+            }
+        });
+    }
 
     // Observe all course cards and testimonial cards
     setTimeout(() => {
