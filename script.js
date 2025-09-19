@@ -177,6 +177,115 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// Mock user state - In real app, this would come from authentication service
+const userState = {
+    isLoggedIn: true, // Change to false to test "Start Learning" state
+    enrolledCourses: [1, 2, 3, 5, 6, 9, 10], // Array of enrolled course IDs
+    courseProgress: {
+        1: 71,
+        2: 85,
+        3: 43,
+        5: 67,
+        6: 92,
+        9: 28,
+        10: 56
+    }
+};
+
+// Function to check if user is enrolled in a course
+function isUserEnrolled(courseId) {
+    return userState.isLoggedIn && userState.enrolledCourses.includes(courseId);
+}
+
+// Function to get user progress for a course
+function getUserProgress(courseId) {
+    return userState.courseProgress[courseId] || 0;
+}
+
+// Function to handle course button clicks
+function handleCourseAction(courseId, event) {
+    event.stopPropagation(); // Prevent card click event
+    
+    const isEnrolled = isUserEnrolled(courseId);
+    
+    if (isEnrolled) {
+        // User is enrolled - continue learning
+        console.log(`Continuing course ${courseId}`);
+        alert(`Continuing your learning journey! You're ${getUserProgress(courseId)}% complete.`);
+        // In real app: redirect to course content/last watched lesson
+    } else {
+        // User not enrolled - start learning
+        console.log(`Starting course ${courseId}`);
+        if (userState.isLoggedIn) {
+            // Logged in but not enrolled - show enrollment process
+            alert('Enrolling you in this course...');
+            // In real app: show enrollment modal or redirect to enrollment page
+        } else {
+            // Not logged in - show login/signup
+            alert('Please log in or sign up to start learning');
+            // In real app: show login modal
+        }
+    }
+}
+
+// Function to simulate user state changes (for testing)
+function toggleUserState() {
+    userState.isLoggedIn = !userState.isLoggedIn;
+    console.log('User logged in:', userState.isLoggedIn);
+    
+    // Refresh the course displays
+    populateSections();
+    
+    // Show feedback to user
+    const status = userState.isLoggedIn ? 'logged in (enrolled student view)' : 'logged out (new visitor view)';
+    alert(`User state changed: ${status}`);
+}
+
+// Function to simulate enrolling in a course
+function enrollInCourse(courseId) {
+    if (userState.isLoggedIn && !userState.enrolledCourses.includes(courseId)) {
+        userState.enrolledCourses.push(courseId);
+        userState.courseProgress[courseId] = Math.floor(Math.random() * 30) + 5; // 5-35% initial progress
+        
+        // Refresh the course displays
+        populateSections();
+        
+        alert(`Enrolled in course ${courseId}! Starting with ${userState.courseProgress[courseId]}% progress.`);
+    }
+}
+
+// Add test buttons to the page (for development/testing)
+function addTestControls() {
+    // Only add in development - remove in production
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        const testControls = document.createElement('div');
+        testControls.style.cssText = `
+            position: fixed;
+            top: 140px;
+            right: 20px;
+            z-index: 1000;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            font-size: 12px;
+        `;
+        testControls.innerHTML = `
+            <h4 style="margin: 0 0 10px 0; color: #037b90;">Test Controls</h4>
+            <button onclick="toggleUserState()" style="display: block; width: 100%; margin-bottom: 5px; padding: 5px; font-size: 11px;">
+                Toggle Login State
+            </button>
+            <button onclick="enrollInCourse(4)" style="display: block; width: 100%; margin-bottom: 5px; padding: 5px; font-size: 11px;">
+                Enroll in Food Safety
+            </button>
+            <div style="margin-top: 10px; font-size: 10px; color: #666;">
+                Status: ${userState.isLoggedIn ? 'Logged In' : 'Logged Out'}
+            </div>
+        `;
+        document.body.appendChild(testControls);
+    }
+}
+
 // Mock data for categories
 const mockCategories = [
     { name: 'IT', icon: '💻', count: '1,261 Courses', color: '#4285f4' },
@@ -401,8 +510,6 @@ const mockCourses = {
     ]
 };
 
-
-
 // Mock data for testimonials with African avatar images
 const mockTestimonials = [
     {
@@ -452,9 +559,25 @@ function createTrustCard(partner) {
     `;
 }
 
-// Function to create course cards
+// Updated dynamic course card function
 function createCourseCard(course) {
     const priceClass = course.price === 'Free' ? 'free' : '';
+    const isEnrolled = isUserEnrolled(course.id);
+    const progress = isEnrolled ? getUserProgress(course.id) : 0;
+    
+    // Generate progress bar HTML only if user is enrolled
+    const progressHTML = isEnrolled ? `
+        <div class="course-progress">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: ${progress}%"></div>
+            </div>
+            <span class="progress-text">${progress}% complete</span>
+        </div>
+    ` : '';
+    
+    // Determine button text and class based on enrollment status
+    const buttonText = isEnrolled ? 'Continue' : 'Start Learning';
+    const buttonClass = isEnrolled ? 'course-btn continue-btn' : 'course-btn';
     
     return `
         <div class="course-card" onclick="viewCourse(${course.id})">
@@ -467,8 +590,9 @@ function createCourseCard(course) {
                     <span>⏱️ ${course.duration}</span>
                     <span>👥 ${course.enrolled}</span>
                 </div>
+                ${progressHTML}
                 <div class="course-footer">
-                    <button class="course-btn">Start Learning</button>
+                    <button class="${buttonClass}" onclick="handleCourseAction(${course.id}, event)">${buttonText}</button>
                 </div>
             </div>
         </div>
@@ -594,7 +718,6 @@ function applyFilters() {
     // filterCourses(level, category, price, searchTerm);
 }
 
-
 // Event handlers
 function exploreCourses(category) {
     console.log(`Exploring courses in: ${category}`);
@@ -623,6 +746,7 @@ function searchCourses(event) {
 
 // Initialize sections when page loads
 document.addEventListener('DOMContentLoaded', function() {
+    addTestControls();
     populateSections();
     populateTrustSection();
     populateInstructorsSection();
