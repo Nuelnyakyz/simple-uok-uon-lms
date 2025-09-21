@@ -559,7 +559,7 @@ function createTrustCard(partner) {
     `;
 }
 
-// Updated dynamic course card function
+// Updated dynamic course card function with better structure
 function createCourseCard(course) {
     const priceClass = course.price === 'Free' ? 'free' : '';
     const isEnrolled = isUserEnrolled(course.id);
@@ -584,11 +584,13 @@ function createCourseCard(course) {
             <img src="${course.image}" alt="${course.title}" class="course-image" />
             <div class="course-price ${priceClass}">${course.price}</div>
             <div class="course-content">
-                <div class="course-level ${course.level}">${course.level} level</div>
-                <h3 class="course-title">${course.title}</h3>
-                <div class="course-meta">
-                    <span>⏱️ ${course.duration}</span>
-                    <span>👥 ${course.enrolled}</span>
+                <div class="course-header">
+                    <div class="course-level ${course.level}">${course.level} level</div>
+                    <h3 class="course-title">${course.title}</h3>
+                    <div class="course-meta">
+                        <span>⏱️ ${course.duration}</span>
+                        <span>👥 ${course.enrolled}</span>
+                    </div>
                 </div>
                 ${progressHTML}
                 <div class="course-footer">
